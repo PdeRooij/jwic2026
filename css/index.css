@@ -23,7 +23,7 @@ body{font-family:Roboto, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sa
 .scroll_page .page .control a:hover{opacity:1;}
 .scroll_page .page .control a.prev{left:20px;bottom:0;}
 .scroll_page .page .control a.next{right:20px;bottom:0;}
-.scroll_page .page .content{margin:120px auto;width:300px;height:80px;background:#EFEFEF;border:1px solid #FEFEFE;box-shadow:0 0 3px 1px #DDD;padding:50px;text-transform:uppercase;color:#333;display:none;}
+.scroll_page .page .content{margin:10rem auto;background:#EFEFEF;border:1rem solid #FEFEFE;box-shadow:0 0 3rem 1rem #DDD;padding:4rem;color:#333;display:none;}
 .scroll_page .first{background:#26A8B8;}
 .scroll_page .second{background:#0C616B;}
 .scroll_page .third{background:#906894;}
