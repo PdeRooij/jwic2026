@@ -115,8 +115,7 @@
             start_scroll(1);
         });
         //keyboard control
-        $(document).keyup(function (event) {
-            event.stopPropagation();
+        $(document).keydown(function (event) {
             if (scroll_page.length > 0) {
                 if (event.keyCode == 38) {
                     start_scroll(2);
@@ -125,10 +124,6 @@
                     start_scroll(-2);
                 }
             }
-        });
-        //fix firefox keyup bug;
-        $(document).keydown(function (event) {
-            event.preventDefault();
         });
 
         //if have scroll_nav;
