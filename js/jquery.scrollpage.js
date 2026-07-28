@@ -13,7 +13,8 @@
             prev: ".prev",
             time: 600,
             nav: true,
-            swipeThreshold: 100,
+            swipeDistanceThreshold: 100,
+            swipeTimeThreshold: 800,    // milliseconds
             complete: function () {
             }
         }, options);
@@ -31,6 +32,7 @@
             nav = opt.nav,
             easing = opt.easing;
         var initialTouchX, initialTouchY, finalTouchX, finalTouchY;
+        var touchTimer, shortSwipe;
         $(window).scrollTop(0);
         //if low version ie explorer;
         if (!$.support.opacity) {
@@ -103,17 +105,22 @@
             var horizontalDistance = finalTouchX - initialTouchX;
             var verticalDistance = finalTouchY - initialTouchY;
 
-            //scroll on vertical swipes over threshold
-            if (Math.abs(verticalDistance) > Math.abs(horizontalDistance) &&
-                Math.abs(verticalDistance) > opt.swipeThreshold) {
+            //scroll on fast, vertical swipes over threshold
+            if (shortSwipe &&
+                Math.abs(verticalDistance) > Math.abs(horizontalDistance) &&
+                Math.abs(verticalDistance) > opt.swipeDistanceThreshold) {
                     start_scroll(verticalDistance);
             }
         }
         scroll_page.on('touchstart', function (event) {
             initialTouchX = event.originalEvent.touches[0].clientX;
             initialTouchY = event.originalEvent.touches[0].clientY;
-        });
-        scroll_page.on('touchend', function (event) {
+            shortSwipe = true;
+            touchTimer = setTimeout(function() {
+                shortSwipe = false;
+            }, opt.swipeTimeThreshold);
+        }).on('touchend', function (event) {
+            clearTimeout(touchTimer);
             finalTouchX = event.originalEvent.changedTouches[0].clientX;
             finalTouchY = event.originalEvent.changedTouches[0].clientY;
             handleSwipe();
