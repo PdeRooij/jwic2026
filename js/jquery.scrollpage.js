@@ -13,6 +13,7 @@
             prev: ".prev",
             time: 600,
             nav: true,
+            swipeThreshold: 100,
             complete: function () {
             }
         }, options);
@@ -29,6 +30,7 @@
             prev = opt.prev,
             nav = opt.nav,
             easing = opt.easing;
+        var initialTouchX, initialTouchY, finalTouchX, finalTouchY;
         $(window).scrollTop(0);
         //if low version ie explorer;
         if (!$.support.opacity) {
@@ -94,6 +96,27 @@
         scroll_page.mousewheel(function (event) {
             event.preventDefault();
             start_scroll(event.deltaY);
+        });
+
+        //swipe
+        function handleSwipe() {
+            var horizontalDistance = finalTouchX - initialTouchX;
+            var verticalDistance = finalTouchY - initialTouchY;
+
+            //scroll on vertical swipes over threshold
+            if (Math.abs(verticalDistance) > Math.abs(horizontalDistance) &&
+                Math.abs(verticalDistance) > opt.swipeThreshold) {
+                    start_scroll(verticalDistance);
+            }
+        }
+        scroll_page.on('touchstart', function (event) {
+            initialTouchX = event.originalEvent.touches[0].clientX;
+            initialTouchY = event.originalEvent.touches[0].clientY;
+        });
+        scroll_page.on('touchend', function (event) {
+            finalTouchX = event.originalEvent.changedTouches[0].clientX;
+            finalTouchY = event.originalEvent.changedTouches[0].clientY;
+            handleSwipe();
         });
 
         //window resize;
