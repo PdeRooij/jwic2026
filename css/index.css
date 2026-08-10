@@ -33,6 +33,8 @@ body {
     overflow: hidden;
 }
 .scroll_page .page {
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 100%;
     margin: 0 auto;
@@ -42,11 +44,11 @@ body {
 }
 .scroll_page .page .control {
     position: absolute;
+    display: flex;
+    align-items: center;
     width: 100%;
-    height: 50px;
-    bottom: 30px;
-    left: 0;
-    right: 0;
+    height: 10%;
+    bottom: 0;
 }
 .scroll_page .page .control a {
     position: absolute;
@@ -66,19 +68,18 @@ body {
     opacity: 1;
 }
 .scroll_page .page .control a.prev {
-    left: 20px;
-    bottom: 0;
+    left: 4%;
 }
 .scroll_page .page .control a.next {
-    right: 20px;
-    bottom: 0;
+    right: 4%;
 }
 .scroll_page .page .content {
-    margin: 10rem auto;
+    width: 100%;
+    margin: 10% auto;
     background: #EFEFEF;
     border: 1rem solid #FEFEFE;
-    box-shadow: 0 0 3rem 1rem #DDD;
-    padding: 4rem;
+    box-shadow: 0 0 2rem 1rem #DDD;
+    padding: 2rem 1rem 2rem 1rem;
     color: #333;
     display: none;
 }
@@ -121,13 +122,10 @@ body {
 /*SCROLL PAGE NAV*/
 .scroll_page ol.scroll_nav {
     position: fixed;
-    width: 14px;
-    right: 80px;
+    width: 2%;
+    right: 5%;
     top: 50%;
-    margin-top: -24px;
-    bottom: 0;
     z-index: 19861108;
-    padding: 0 0;
 }
 .scroll_page ol.scroll_nav li {
     width: 12px;
@@ -139,6 +137,10 @@ body {
     text-indent: -99px;
     overflow: hidden;
     cursor: pointer;
+}
+.scroll_page ol.scroll_nav li:hover {
+    background: #DDD;
+    opacity: 0.5;
 }
 .scroll_page ol.scroll_nav li.curr_page {
     background: #DDD;
