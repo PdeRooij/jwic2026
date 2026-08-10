@@ -82,9 +82,25 @@ body {
     color: #333;
     display: none;
 }
+/* Specific content */
 .fine-print {
     font-size: 0.5rem;
 }
+#WhatsAppQR {
+    max-width: 20%;
+    float: right;
+}
+#DriveQR {
+    max-width: 10%;
+    float: right;
+}
+#Congregation {
+    max-width: 50%;
+}
+#Tile {
+    max-width: 20%;
+}
+
 .scroll_page .first {
     background: #26A8B8;
 }
