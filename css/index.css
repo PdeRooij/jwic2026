@@ -109,13 +109,16 @@ body {
     background: #0C616B;
 }
 .scroll_page .third {
-    background: #906894;
+    background-image: url("../images/Wristbands.jpg");
+    background-size: 100%;
 }
 .scroll_page .fourth {
-    background: #8F8C2A;
+    background-image: url("../images/Bags.jpg");
+    background-size: 100%;
 }
 .scroll_page .fifth {
-    background: #596B47;
+    background-image: url("../images/Snacks.jpg");
+    background-size: 100%;
 }
 
 
