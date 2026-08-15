@@ -140,24 +140,25 @@ body {
 /*SCROLL PAGE NAV*/
 .scroll_page ol.scroll_nav {
     position: fixed;
-    width: 2%;
+    width: 4%;
     right: 5%;
     top: 50%;
+    transform: translate(0, -50%);
     z-index: 19861108;
 }
 .scroll_page ol.scroll_nav li {
-    width: 12px;
-    height: 12px;
-    margin: 10px auto;
+    width: 50%;
+    aspect-ratio: 1/1;
+    margin: 50% auto;
     background: none;
     border: 1px solid #DDD;
-    border-radius: 12px;
-    text-indent: -99px;
+    border-radius: 50%;
+    text-indent: -99%;
     overflow: hidden;
     cursor: pointer;
 }
 .scroll_page ol.scroll_nav li:hover {
-    background: #DDD;
+    background: #058743;
     opacity: 0.5;
 }
 .scroll_page ol.scroll_nav li.curr_page {
